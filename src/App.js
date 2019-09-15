@@ -43,7 +43,7 @@ class App extends Component {
                 <Todos
                     todos={this.state.todos}
                     deleteTodo={this.deleteTodo}/>
-                <AddTodo addTodo={this.addTodo}/>
+                <AddTodo addTo do={this.addTodo}/>
             </div>
         )
     };
