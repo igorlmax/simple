@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Todos from './Todos';
 import AddTodo from "./AddForm";
+import Home from "./components/home";
 
 class App extends Component {
 
@@ -44,6 +45,7 @@ class App extends Component {
                     todos={this.state.todos}
                     deleteTodo={this.deleteTodo}/>
                 <AddTodo addTodo={this.addTodo}/>
+                <Home/>
             </div>
         )
     };
