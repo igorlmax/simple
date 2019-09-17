@@ -9,12 +9,22 @@ class Post extends Component {
         console.log(this.props.post)
     }
 
+    // calls the delete dispatch - below
+    handleClick = () => {
+        this.props.deletePost(this.props.post.id);
+        this.props.history.push('/');
+    };
+
     render() {
+        console.log(this.props);
+
         const {post} = this.props;
         return (
             <div>
                 <h3>The ID is: {post.id}</h3>
                 <h2>The text is: {post.title}</h2>
+
+                <button onClick={this.handleClick}>Delete Post</button>
             </div>
         )
     }
@@ -25,6 +35,7 @@ const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.post_id;
 
     return {
+        // this will be send on click to Reducer
         post: state.posts.find(post => post.id === id)
     };
 };
@@ -33,11 +44,11 @@ const mapStateToProps = (state, ownProps) => {
 // store.dispatch({type: 'ADD_TODO', payload: 'go make some sandwich'});
 
 const mapDispatchToProps = (dispatch) => {
+
     return {
-        deletePost: (id) => {
-            dispatch({type: 'DELETE_POST', id: id})
-        }
-    };
+        deletePost: (id) => {dispatch({type: 'DELETE_POST', id})}
+    }
+
 };
 
-export default connect(mapStateToProps)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
