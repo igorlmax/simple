@@ -1,12 +1,13 @@
 const initState = {
     posts: [
-        {id: '101', title: 'do the homework'},
-        {id: '102', title: 'swimming day'},
-        {id: '103', title: 'call John'},
+        {id: '101', title: 'Do the homework'},
+        {id: '102', title: 'Swimming day'},
+        {id: '103', title: 'Call John'},
     ]
 };
 
 const combineReducers = (state = initState, action) => {
+    console.log();
     return state;
 };
 

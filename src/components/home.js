@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
 
@@ -14,7 +15,9 @@ class Home extends Component {
             posts.map(post => {
                 return (
                     <div key={post.id}>
-                        <h3>{post.id}</h3>
+                        <Link to={'/' + post.id}>
+                            <h3>{post.title}</h3>
+                        </Link>
                     </div>
                 )
             })) : (
@@ -36,5 +39,6 @@ const mapStateToProps = (state) => {
         posts: state.posts
     }
 };
+
 
 export default connect(mapStateToProps)(Home);

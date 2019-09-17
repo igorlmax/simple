@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import Todos from './Todos';
 import AddTodo from "./AddForm";
 import Home from "./components/home";
+import Contact from "./components/contact";
+import Post from "../src/components/post";
+import {BrowserRouter, Route} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 class App extends Component {
 
@@ -39,14 +43,25 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <h1>Todo's</h1>
-                <Todos
-                    todos={this.state.todos}
-                    deleteTodo={this.deleteTodo}/>
-                <AddTodo addTodo={this.addTodo}/>
-                <Home/>
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <h1>Todo's</h1>
+                    <div>
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
+                        </ul>
+                    </div>
+                    <Todos
+                        todos={this.state.todos}
+                        deleteTodo={this.deleteTodo}/>
+                    <AddTodo addTodo={this.addTodo}/>
+                    <h6>Dynamic Content</h6>
+                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/contact' component={Contact}/>
+                    <Route path='/:post_id' component={Post}/>
+                </div>
+            </BrowserRouter>
         )
     };
 }
