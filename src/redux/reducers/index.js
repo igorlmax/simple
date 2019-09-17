@@ -10,9 +10,10 @@ const combineReducers = (state = initState, action) => {
 
     if (action.type === 'DELETE_POST') {
         let newPosts = state.posts.filter(post => {
-            return action.id !== post.id;
+            return action.id !== post.id; // this is the logic where a single post is deleted
         });
         return {
+            // return the updated state
             ...state,
             posts: newPosts
         }
