@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from 'react-redux';
 
 // REACT & REDUX way
 class AddTodo extends React.Component {
@@ -36,7 +37,10 @@ class AddTodo extends React.Component {
             </form>
         )
     }
-
 }
 
-export default AddTodo;
+function mapStateToProps(state) {
+    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);

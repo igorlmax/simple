@@ -4,3 +4,12 @@ export const deletePost = (id) => {
         id: id
     };
 };
+
+export function addTodo(todo) {
+    return {
+        type: "ADD_TODO",
+        todo: todo
+    };
+}
+
+
