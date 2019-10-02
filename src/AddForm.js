@@ -27,6 +27,7 @@ class AddTodo extends Component {
     render() {
         return (
             <div>
+                <hr/>
                 <form onSubmit={this.handleSubmit}>
                     <label>Add new todo:</label>
                     <input
@@ -35,8 +36,9 @@ class AddTodo extends Component {
                         value={this.state.text}/>
                     <input type="Submit"/>
                 </form>
+                <hr/>
             </div>
         )
     }
 }
-export default AddTodo;
+// export default AddTodo;

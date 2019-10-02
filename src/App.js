@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Todos from './Todos';
-import AddTodo from "./AddForm";
 import Home from "./components/home";
 import Contact from "./components/contact";
 import Post from "../src/components/post";
 import {BrowserRouter, Route} from 'react-router-dom';
 import {Link, NavLink} from 'react-router-dom';
+import AddTodo from "./components/addtodo";
 
 class App extends Component {
 
@@ -52,10 +52,11 @@ class App extends Component {
                             <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </div>
+                    <AddTodo/>
                     <Todos
                         todos={this.state.todos}
                         deleteTodo={this.deleteTodo}/>
-                    <AddTodo addTodo={this.addTodo}/>
+                    {/*<AddTodo addTodo={this.addTodo}/>*/}
                     <h6>Dynamic Content</h6>
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/contact' component={Contact}/>

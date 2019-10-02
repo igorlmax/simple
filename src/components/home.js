@@ -11,6 +11,8 @@ class Home extends Component {
         // assign posts props to a constant
         const {posts} = this.props;
 
+        console.log(posts);
+
         const postList = posts.length ? (
             posts.map(post => {
                 return (
